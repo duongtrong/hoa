@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+<th:block layout:fragment="content">
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">List Products</h3>
+                        </div>
+                        <div class="card-body">
+                            <table id="example1" class="table table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Image</th>
+                                    <th>Price</th>
+                                    <th>Action</th>
+                                </tr>
+                                </thead>
+                                <tbody style="font-size: 0.9rem;">
+                                <th:block th:each="product, itemIndex : ${productResponseList}">
+                                    <tr>
+                                        <td th:text="${itemIndex.count}"></td>®
+                                        <td th:text="${product.name}"></td>
+                                        <td th:utext="${#strings.abbreviate(product.description, 70)}"></td>
+                                        <td><img th:src="${product.image}"
+                                                 style="width: 50px;
+                                                             height: 50px;
+                                                             border-radius: 50%;
+                                                             border-width: 1px;
+                                                             border-style: solid;
+                                                             object-fit: contain;
+                                                            "/></td>
+                                        <td th:text="${product.price}"></td>
+                                        <td class="project-actions text-center">
+                                            <a class="btn btn-info btn-sm"
+                                               th:href="@{/products/edit/{id}(id=${product.id})}">
+                                                <i class="fas fa-pencil-alt"></i>
+                                            </a>
+                                            <a class="btn btn-danger btn-sm"
+                                               onclick="return confirm('Are your sure?')"
+                                               th:href="@{/products/delete/{id}(id=${product.id})}">
+                                                <i class="fas fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </th:block>
+                                </tbody>
+                                <tfoot>
+                                <tr>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </div>
+                </div>®
+            </div>
+        </section>
+    </div>
+</th:block>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product</title>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+<!--                        @{/products/edit/{id}(id=${product.id})}
+th:action="@{/products/edit/{id}(id=${product.id})}"-->
+                        <form  th:object="${product}" method="post">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Update</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                                title="Collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputName">Name</label>
+                                        <input type="text" id="inputName" th:field="*{name}" class="form-control">
+                                        <span class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description">Description</label>
+                                        <textarea id="description" th:field="*{description}" class="form-control" rows="4"></textarea>
+                                        <span class="text-danger" th:errors="*{description}" th:if="${#fields.hasErrors('description')}"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputClientCompany">Image</label>
+                                        <input type="text" id="inputClientCompany" th:field="*{image}" class="form-control">
+                                        <span class="text-danger" th:errors="*{image}" th:if="${#fields.hasErrors('image')}"></span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputProjectLeader">Price</label>
+                                        <input type="text" id="inputProjectLeader" th:field="*{price}" class="form-control">
+                                        <span class="text-danger" th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Price error</span>
+                                    </div>
+                                    <input type="submit" value="Update" class="btn btn-success float-right">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </th:block>
+</body>
+</html>
