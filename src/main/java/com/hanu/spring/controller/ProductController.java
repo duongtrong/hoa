@@ -29,7 +29,7 @@ public class ProductController {
 
     @PostMapping("/create")
     public String create(@ModelAttribute("productRequest") @Validated Product productRequest) {
-        productService.createOrUpdate(productRequest);
+        productService.create(productRequest);
         return "redirect:/products";
     }
 
@@ -55,7 +55,7 @@ public class ProductController {
             product.setId(id);
             return "product/edit";
         }
-        productService.createOrUpdate(product);
+        productService.update(product);
         return "redirect:/products";
     }
 

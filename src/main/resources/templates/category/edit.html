@@ -28,6 +28,12 @@
                                 <div class="form-group">
                                     <label for="txt-category-update">Name</label>
                                     <input type="text" id="txt-category-update" th:field="*{name}" class="form-control /">
+                                    <span class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name Error</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="description">Description</label>
+                                    <textarea id="description" th:field="*{description}" class="form-control" rows="4"></textarea>
+                                    <span class="text-danger" th:errors="*{description}" th:if="${#fields.hasErrors('description')}">Description error</span>
                                 </div>
                                 <input id="btn-category-update" type="submit" value="Update"
                                        class="btn btn-success float-right">

@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Product</title>
+    <title>Customer</title>
 </head>
 <body>
     <th:block layout:fragment="content">
@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-md-2"></div>
                     <div class="col-md-8">
-                        <form  th:object="${product}" method="post">
+                        <form  th:object="${customer}" method="post">
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Update</h3>
@@ -26,24 +26,19 @@
                                 </div>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label for="inputName">Name</label>
-                                        <input type="text" id="inputName" th:field="*{name}" class="form-control">
-                                        <span class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}"></span>
+                                        <label for="inputName">Full Name</label>
+                                        <input type="text" id="inputName" th:field="*{fullName}" class="form-control">
+                                        <span class="text-danger" th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="description">Description</label>
-                                        <textarea id="description" th:field="*{description}" class="form-control" rows="4"></textarea>
-                                        <span class="text-danger" th:errors="*{description}" th:if="${#fields.hasErrors('description')}"></span>
+                                        <label for="inputClientCompany">Phone Number</label>
+                                        <input type="text" id="inputClientCompany" th:field="*{phoneNumber}" class="form-control">
+                                        <span class="text-danger" th:errors="*{phoneNumber}" th:if="${#fields.hasErrors('phoneNumber')}"></span>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputClientCompany">Image</label>
-                                        <input type="text" id="inputClientCompany" th:field="*{image}" class="form-control">
-                                        <span class="text-danger" th:errors="*{image}" th:if="${#fields.hasErrors('image')}"></span>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="inputProjectLeader">Price</label>
-                                        <input type="text" id="inputProjectLeader" th:field="*{price}" class="form-control">
-                                        <span class="text-danger" th:errors="*{price}" th:if="${#fields.hasErrors('price')}">Price error</span>
+                                        <label for="inputProjectLeader">Email</label>
+                                        <input type="text" id="inputProjectLeader" th:field="*{email}" class="form-control">
+                                        <span class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}"></span>
                                     </div>
                                     <input type="submit" value="Update" class="btn btn-success float-right">
                                 </div>

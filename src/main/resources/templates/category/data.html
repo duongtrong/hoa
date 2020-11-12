@@ -22,6 +22,7 @@
                                 <tr>
                                     <th>STT</th>
                                     <th>Name</th>
+                                    <th>Description</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
@@ -29,6 +30,7 @@
                                 <tr th:each="category,state : ${categoryResponses}">
                                     <td th:text="${state.count}"></td>
                                     <td th:text="${category.name}"></td>
+                                    <td th:text="${category.description}"></td>
                                     <td class="project-actions text-center">
                                         <a class="btn btn-info btn-sm"
                                            th:href="@{/categories/edit/{id}(id=${category.id})}">
@@ -44,6 +46,7 @@
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <th></th>
                                     <th></th>
                                     <th></th>
                                     <th></th>

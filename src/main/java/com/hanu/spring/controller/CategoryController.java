@@ -27,16 +27,16 @@ public class CategoryController {
         return "category/data";
     }
 
-    @PostMapping("/create")
-    public String create(@ModelAttribute("category") @Validated Category category) {
-        categoryService.createOrUpdate(category);
-        return "redirect:/categories";
+    @GetMapping("/create")
+    public String createO(Model model) {
+        model.addAttribute("categoryRequest", new Category());
+        return "category/create";
     }
 
-    @GetMapping("/create")
-    public String createO(@ModelAttribute("category") Category category, Model model) {
-        model.addAttribute("category", category);
-        return "category/create";
+    @PostMapping("/create")
+    public String create(@ModelAttribute("categoryRequest") Category categoryRequest) {
+        categoryService.create(categoryRequest);
+        return "redirect:/categories";
     }
 
     @GetMapping("/edit/{id}")
@@ -55,7 +55,7 @@ public class CategoryController {
             category.setId(id);
             return "category/edit";
         }
-        categoryService.createOrUpdate(category);
+        categoryService.update(category);
         return "redirect:/categories";
     }
 

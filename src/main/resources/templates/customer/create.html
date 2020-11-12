@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{fragment/layout}"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer</title>
+</head>
+<body>
+    <th:block layout:fragment="content">
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                        <form method="post" th:object="${customerRequest}" th:action="@{/customers/create}">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Create</h3>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip"
+                                                title="Collapse">
+                                            <i class="fas fa-minus"></i></button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="form-group">
+                                        <label for="inputClientFullName">Full Name</label>
+                                        <input type="text" id="inputClientFullName" th:field="*{fullName}" class="form-control">
+                                        <span class="text-danger" th:errors="*{fullName}" th:if="${#fields.hasErrors('fullName')}">Full Name Error</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputClientCompany">Phone Number</label>
+                                        <input type="text" id="inputClientCompany" th:field="*{phoneNumber}" class="form-control">
+                                        <span class="text-danger" th:errors="*{phoneNumber}" th:if="${#fields.hasErrors('phoneNumber')}">Phone Number error</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="inputProjectLeader">Email</label>
+                                        <input type="text" id="inputProjectLeader" th:field="*{email}" class="form-control">
+                                        <span class="text-danger" th:errors="*{email}" th:if="${#fields.hasErrors('email')}">Email error</span>
+                                    </div>
+                                    <input type="submit" value="Create" class="btn btn-success float-right">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </th:block>
+</body>
+</html>

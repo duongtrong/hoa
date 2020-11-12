@@ -8,7 +8,9 @@ public interface CategoryService {
 
     List<Category> getAllCategory();
 
-    void createOrUpdate(Category category);
+    void create(Category category);
+
+    void update(Category category);
 
     Category getDetail(Long id);
 

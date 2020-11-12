@@ -8,7 +8,9 @@ public interface ProductService {
 
     List<Product> getAllProduct();
 
-    void createOrUpdate(Product product);
+    void create(Product product);
+
+    void update(Product product);
 
     Product getDetail(Long id);
 

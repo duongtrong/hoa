@@ -8,20 +8,23 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Entity
 @Getter
 @Setter
+@Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category implements Serializable {
+public class Customer implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "fullName")
+    private String fullName;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "phoneNumber")
+    private String phoneNumber;
+
+    @Column(name = "email")
+    private String email;
 }
